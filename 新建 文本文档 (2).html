@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>疯狂星期四 - 求V50</title>
+  <style>
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      background-color: #f7e2dd;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #c1272d;
+      font-size: 3em;
+    }
+    p {
+      font-size: 1.5em;
+      margin: 20px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      color: white;
+      background-color: #c1272d;
+      border: none;
+      border-radius: 5px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #a01f24;
+    }
+    .logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="https://100knots.com/images/kfc-logo.png"  alt="KFC Logo" class="logo" />
+  <h1>疯狂星期四 · 快乐一整周！</h1>
+  <p id="message">今天吃鸡了吗？🍗<br/>求你请我吃一顿疯狂星期四吧～</p>
+
+  <div>
+    <button class="btn" onclick="agree()">同意 😄</button>
+    <button class="btn" onclick="disagree()">拒绝 😭</button>
+  </div>
+
+  <script>
+    const messages = [
+      "再考虑一下嘛～肯德基真的超好吃的！",
+      "拜托啦！就一次！让我快乐一下下！",
+      "你知道吗？不吃疯狂星期四的人会失去好运哦～",
+      "我已经饿到开始幻想炸鸡了😭",
+      "你不答应的话，我会一直问下去的...",
+      "你是不想看到我幸福的样子吗？",
+      "只要轻轻一点同意，我们就都能幸福了！",
+      "为了你我也得坚持问到底！",
+      "你忍心看着我失望吗？",
+      "求你了！再点一次不同意我就要哭了！"
+    ];
+
+    function agree() {
+      alert("太好啦！就知道你最好了！🍗🍗🍗");
+      document.body.innerHTML = `
+        <h1 style="color:#c1272d;">感谢你的支持！</h1>
+        <p style="font-size:2em;">我们一起去吃疯狂星期四吧！🎉</p>
+        <img src="https://100knots.com/images/kfc-logo.png"  alt="KFC Logo" class="logo" />
+      `;
+    }
+
+    let clickCount = 0;
+
+    function disagree() {
+      if (clickCount < messages.length) {
+        document.getElementById("message").innerHTML = messages[clickCount];
+        clickCount++;
+      } else {
+        // 当话说完后，无限重复最后一句
+        document.getElementById("message").innerHTML = messages[messages.length - 1];
+      }
+    }
+  </script>
+
+</body>
+</html>
